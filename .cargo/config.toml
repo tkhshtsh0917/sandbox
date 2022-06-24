@@ -1,0 +1,17 @@
+[alias]
+cd = "check"
+bd = "build"
+td = "test"
+rd = "run"
+dd = "doc --no-deps"
+
+cr = "check --release"
+br = "build --release"
+tr = "test --release"
+rr = "run --release"
+dr = "doc --no-deps --release"
+
+cl = "clean"
+
+[env]
+ENVIRONMENT_VALUE = "env_value"
