@@ -11,3 +11,4 @@ sandbox-macros = { path = "../sandbox-macros", optional = true }
 [features]
 default = []
 switch = ["dep:sandbox-macros"]
+env-flag = []

@@ -1,29 +1,31 @@
-#[cfg(not(feature = "switch"))]
-use std::{env, process};
-
-const ENV_KEY: &str = "ENVIRONMENT_VALUE";
+use std::process;
 
 #[cfg(feature = "switch")]
 use sandbox_macros::trace;
 
 #[cfg(not(feature = "switch"))]
 fn main() -> process::ExitCode {
-    let env_value = match env::var(ENV_KEY) {
-        Ok(value) => value,
-        Err(error) => {
-            eprintln!("{}: {}", error, ENV_KEY);
-            return process::ExitCode::FAILURE;
-        }
-    };
+    if cfg!(feature = "env-flag") {
+        use std::env;
+        const ENV_FLAG: &str = "ENV_FLAG";
 
-    println!("{}", env_value);
-    println!("Hello, world!");
+        match env::var(ENV_FLAG) {
+            Ok(value) => println!("{}", value),
+            Err(error) => {
+                eprintln!("{}: {}", error, ENV_FLAG);
+                return process::ExitCode::FAILURE;
+            }
+        }
+    } else {
+        println!("Hello, world!");
+    }
 
     process::ExitCode::SUCCESS
 }
 
 #[cfg(feature = "switch")]
 #[trace]
-fn main() {
+fn main() -> process::ExitCode {
     println!("Feature switch!");
+    process::ExitCode::SUCCESS
 }

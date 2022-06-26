@@ -14,4 +14,4 @@ dr = "doc --no-deps --release"
 cl = "clean"
 
 [env]
-ENVIRONMENT_VALUE = "env_value"
+ENV_FLAG = "flag"
