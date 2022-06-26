@@ -3,6 +3,7 @@ use std::process;
 #[cfg(feature = "switch")]
 use sandbox_macros::trace;
 
+/// Default feature main.
 #[cfg(not(feature = "switch"))]
 fn main() -> process::ExitCode {
     if cfg!(feature = "env-flag") {
@@ -23,6 +24,7 @@ fn main() -> process::ExitCode {
     process::ExitCode::SUCCESS
 }
 
+/// Switch feature main.
 #[cfg(feature = "switch")]
 #[trace]
 fn main() -> process::ExitCode {

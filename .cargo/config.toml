@@ -1,15 +1,15 @@
 [alias]
 cd = "check"
 bd = "build"
-td = "test"
+td = "llvm-cov"
 rd = "run"
-dd = "doc --no-deps"
+dd = "doc --no-deps --document-private-items"
 
 cr = "check --release"
 br = "build --release"
-tr = "test --release"
+tr = "llvm-cov --release"
 rr = "run --release"
-dr = "doc --no-deps --release"
+dr = "doc --no-deps --document-private-items --release"
 
 cl = "clean"
 
