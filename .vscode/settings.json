@@ -5,5 +5,14 @@
     "rust-analyzer.restartServerOnConfigChange": true,
     "rust-analyzer.checkOnSave.command": "clippy",
     "rust-analyzer.procMacro.enable": true,
-    "rust-analyzer.procMacro.attributes.enable": true
+    "rust-analyzer.procMacro.attributes.enable": true,
+    /*
+     * 1. `rustup show`コマンドで、使用しているtoolchain名と`rustup home`を確認する。
+     * 2. `rustc --version --verbose`コマンドで、使用しているrustcの`commit-hash`を確認する。
+     * 3. 上記1.と2.で確認した情報をもとに、"sourceMap"を設定する。
+     * 4. すると、デバッグ時にアセンブリ表示されなくなる!!!
+     */ 
+    "lldb.launch.sourceMap": {
+        "/rustc/fe5b13d681f25ee6474be29d748c65adcd91f69e": "C:\\Users\\toshinori\\.rustup\\toolchains\\1.61.0-x86_64-pc-windows-msvc\\lib\\rustlib\\src\\rust"
+    }
 }

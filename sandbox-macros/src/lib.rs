@@ -5,6 +5,7 @@ use quote::ToTokens;
 use syn::{parse_macro_input, parse_quote, ItemFn};
 
 /// Attribute macro.
+#[forbid(unsafe_code)]
 #[proc_macro_attribute]
 pub fn trace(_attr: TokenStream, item: TokenStream) -> TokenStream {
     let mut ast = parse_macro_input!(item as ItemFn);

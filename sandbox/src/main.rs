@@ -5,6 +5,7 @@ use sandbox_macros::trace;
 
 /// Default feature main.
 #[cfg(not(feature = "switch"))]
+#[forbid(unsafe_code)]
 fn main() -> process::ExitCode {
     if cfg!(feature = "env-flag") {
         use std::env;
@@ -26,6 +27,7 @@ fn main() -> process::ExitCode {
 
 /// Switch feature main.
 #[cfg(feature = "switch")]
+#[forbid(unsafe_code)]
 #[trace]
 fn main() -> process::ExitCode {
     println!("Feature switch!");
